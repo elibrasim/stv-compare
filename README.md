@@ -63,19 +63,32 @@ Ver `lib/pixiInspector.js` para el detalle de cómo se enlaza cada
 
 ## Qué compara hoy
 
-- **Home**: que las tiras ("rails") mostradas son las mismas y están en el
-  mismo orden entre versiones, paginando con la tecla abajo hasta agotar la
-  lista (`tests/home-rails.spec.js`).
+Cada test corre para cada perfil común entre las versiones comparadas
+(descubiertos automáticamente vía `listProfiles`, no hay que listarlos a
+mano) y para cada pareja de versiones en `compare.config.json`:
 
-Próximos escenarios previstos (misma base de código, solo hace falta añadir
+- **Home** (`tests/home-rails.spec.js`): que las tiras ("rails") mostradas
+  son las mismas y están en el mismo orden entre versiones, paginando con la
+  tecla abajo hasta agotar la lista.
+- **Menú principal** (`tests/main-menu.spec.js`): que los elementos del menú
+  principal (top-bar horizontal o lateral vertical, según la versión) son
+  los mismos y en el mismo orden.
+- **Categorías de "Meine Inhalte"** (`tests/mycontents-categories.spec.js`):
+  que las categorías mostradas en esa pantalla (Verfügbare Aufnahmen, Meine
+  Liste, ...) son las mismas y en el mismo orden.
+- **Primeros elementos por categoría** (`tests/mycontents-top-items.spec.js`):
+  dentro de cada categoría común de "Meine Inhalte", que los primeros 3
+  elementos son los mismos y en el mismo orden. Usa `expect.soft` para
+  reportar todas las categorías con diferencias en una sola ejecución, en
+  vez de parar en la primera.
+
+Próximo escenario previsto (misma base de código, solo haría falta añadir
 la navegación específica en `lib/navigation.js` + un nuevo spec):
-- Que cada sección del menú principal abre la misma pantalla con las mismas
-  tiras en ambas versiones.
 - Que el "ver más" de cada tira de Home abre la misma página con el mismo
   contenido en ambas versiones.
 
 `lib/pixiInspector.js` y `lib/compareLists.js` ya son genéricos (reciben qué
-`tagName`s buscar / qué listas comparar), así que estos escenarios nuevos no
+`tagName`s buscar / qué listas comparar), así que los escenarios nuevos no
 deberían requerir tocarlos.
 
 ## Configurar qué se compara
