@@ -1,0 +1,13 @@
+{
+  "name": "stv-compare",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tests automaticos que comparan la app OTT (stv-boilerplate/stv-core) entre versiones y contra el mismo entorno de backend (tiras de Home, y proximamente menu / ver mas).",
+  "scripts": {
+    "pretest": "node scripts/kill-stale-ports.js",
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1"
+  }
+}

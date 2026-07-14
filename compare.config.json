@@ -1,0 +1,19 @@
+{
+  "env": "de",
+  "device": {
+    "id": "REPLACE_WITH_YOUR_DEVICE_ID",
+    "type": 0
+  },
+  "versions": [
+    {
+      "name": "26.1",
+      "path": "../stv-boilerplate-26.1",
+      "port": 8443
+    },
+    {
+      "name": "26.6",
+      "path": "../stv-boilerplate-26.6",
+      "port": 443
+    }
+  ]
+}

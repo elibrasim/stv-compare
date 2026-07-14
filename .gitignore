@@ -1,0 +1,12 @@
+node_modules/
+
+# Artefactos de ejecuciones (logs reales de devServer/navegador, capturas con contenido real
+# de producción, reportes/trazas de Playwright) — no deben publicarse, se regeneran solos con
+# cada `npm test`.
+*.log
+*.png
+test-results/
+playwright-report/
+
+# Config local de Claude Code (permisos concedidos en esta máquina), no compartible.
+.claude/settings.local.json
